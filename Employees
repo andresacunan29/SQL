@@ -59,3 +59,12 @@ WHERE employee2.emp_id IN (
     FROM works_with
     WHERE works_with.total_sales > 30000
 );
+
+DELIMETER $$
+CREATE 
+    TRIGGER my_trigger BEFORE INSERT 
+    ON employeE2
+    FOR EACH ROW BEGIN 
+        INSERT INTO trigger_test VALUES('added new employee');
+    END$$
+DELIMETER;
