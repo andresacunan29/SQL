@@ -51,3 +51,11 @@ CREATE TABLE branch_supplier2(
     FOREIGN KEY (branch_id) REFERENCES branch2(branch_id) ON DELETE CASCADE
 
 );
+
+SELECT employee2.first_name, employee2.last_name
+FROM employee2
+WHERE employee2.emp_id IN (
+    SELECT works_with.emp_id
+    FROM works_with
+    WHERE works_with.total_sales > 30000
+);
